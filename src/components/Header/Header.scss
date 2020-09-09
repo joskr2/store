@@ -20,7 +20,6 @@ $PT-sans: "PT Sans", sans-serif;
     flex: 1;
     align-items: center;
     border-radius: 24px;
-
     &__input {
       height: 12px;
       padding: 10px;
@@ -98,8 +97,8 @@ $PT-sans: "PT Sans", sans-serif;
         font-weight: 400;
         margin-right: 10px;
         margin-left: 10px;
-        padding: 2px;
-        border-radius: 10px;
+        padding: 3px;
+        border-radius: 47%;
         background-color: white;
         color: $background-color;
       }
