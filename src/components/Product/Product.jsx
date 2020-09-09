@@ -5,7 +5,7 @@ import { ADD_TO_BASKET } from "../../StateProvider/ActionTypes";
 
 const Product = (props) => {
   const { id, titulo, precio, imagen, rating } = props;
-  const [{ basket }, dispatch] = useStateValue();
+  const [state,dispatch] = useStateValue();
 
   const addToBasket = () => {
     // aqui envio el item a la store

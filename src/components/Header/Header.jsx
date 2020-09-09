@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../../StateProvider/Provider";
 
 const Header = () => {
-  const [state,disptach] = useStateValue();
+  const [{basket},dispatch] = useStateValue();
   return (
     <div className="header">
       <Link to="/">
@@ -34,7 +34,7 @@ const Header = () => {
         <Link className="header__nav__option__basket" to="/checkout">
           <div>
             <Badge
-              badgeContent={4}
+              badgeContent={basket?.length}
               color="primary"
             >
               <ShoppingCartIcon />
