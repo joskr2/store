@@ -1,13 +1,19 @@
 import React from "react";
 import "./Header.scss";
+import Badge from "@material-ui/core/Badge";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "./../../media/images/logo.png";
+import { Link } from "react-router-dom";
+import { useStateValue } from "../../StateProvider/Provider";
 
 const Header = () => {
+  const [{basket},dispatch] = useStateValue();
   return (
     <div className="header">
-      <img className="header__logo" src={logo} alt="logo" />
+      <Link to="/">
+        <img className="header__logo" src={logo} alt="logo" />
+      </Link>
       <div className="header__search">
         <input type="text" className="header__search__input" />
         <SearchIcon className="header__search__icon" />
@@ -25,10 +31,16 @@ const Header = () => {
           <span className="header__nav__option__five">Tus</span>
           <span className="header__nav__option__six">Cupones</span>
         </div>
-        <div className="header__nav__option__basket">
-          <ShoppingCartIcon />
-          <span className="header__nav__option__basket-count">1</span>
-        </div>
+        <Link className="header__nav__option__basket" to="/checkout">
+          <div>
+            <Badge
+              badgeContent={basket?.length}
+              color="primary"
+            >
+              <ShoppingCartIcon />
+            </Badge>
+          </div>
+        </Link>
       </div>
     </div>
   );
