@@ -3,35 +3,17 @@
 $background-color: #f8bd59;
 $PT-sans: "PT Sans", sans-serif;
 
-.product {
+.subtotal {
   display: flex;
   flex-direction: column;
-  background-color: white;
-  z-index: 1;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 10px;
+  justify-content: space-between;
+  width: 300px;
+  height: 100px;
   padding: 20px;
-  width: 100%;
-  max-height: 400px;
-  min-width: 100px;
-  &__image {
-    max-height: 200px;
-    width: 100%;
-    object-fit: contain;
-    margin-bottom: 15px;
-  }
-  &__rating{
-      display: flex;
-  }
-  &__info {
-    height: 100px;
-    margin-bottom: 15px;
-  }
-  &__price {
-    font-family: $PT-sans;
-    margin-top: 5px;
-  }
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-left: 20px;
   &__button {
     margin-top: 18px;
     padding: 5px;
@@ -47,5 +29,13 @@ $PT-sans: "PT Sans", sans-serif;
   }
   &__button:hover {
     cursor: pointer;
+  }
+
+  &__gift {
+    margin-right: 5px;
+    font-family: $PT-sans;
+  }
+  &__title {
+    font-family: $PT-sans;
   }
 }

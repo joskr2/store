@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$background-color: #f8bd59;
+$PT-sans: "PT Sans", sans-serif;
+
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  height: max-content;
+  &__side {
+    &__left {
+      &__banner {
+          border-radius: 5px;
+        width: 100%;
+        max-height: 300px;
+        margin-bottom: 10px;
+      }
+      &__title {
+        font-family: $PT-sans;
+        margin-right: 10px;
+        padding: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+    }
+  }
+}

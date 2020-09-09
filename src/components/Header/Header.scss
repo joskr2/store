@@ -52,56 +52,57 @@ $PT-sans: "PT Sans", sans-serif;
     &__option {
       display: flex;
       flex-direction: column;
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
       color: white;
-      padding: 0.1em;
+      padding: 3px;
       &__one {
         font-family: $PT-sans;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 800;
       }
       &__two {
         font-family: $PT-sans;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
       }
       &__three {
         font-family: $PT-sans;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
       }
       &__four {
         font-family: $PT-sans;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
       }
       &__five {
         font-family: $PT-sans;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
       }
       &__six {
         font-family: $PT-sans;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
       }
       &__basket {
         display: flex;
         align-items: center;
         color: white;
-      }
-      &__basket-count {
-        font-family: $PT-sans;
-        font-size: 12px;
-        font-weight: 400;
-        margin-right: 10px;
-        margin-left: 10px;
-        padding: 3px;
-        border-radius: 47%;
-        background-color: white;
-        color: $background-color;
+        margin-right: 20px;
       }
     }
   }
+}
+.MuiBadge-colorPrimary {
+  color: $background-color !important;
+
+  background-color: white !important;
+}
+.MuiBadge-badge {
+  height: 18px !important;
+  border: 1px solid lightgrey !important;
+  font-family: $PT-sans !important;
+  font-weight: bolder !important;
 }
