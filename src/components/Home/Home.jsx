@@ -17,6 +17,7 @@ const Home = () => {
         <img className="home__image" src={shopping} alt="shopping_market" />
         <div className="home__row">
           <Product
+            id={1233}
             titulo="Bolsa de tela color blanca , hecha con materiales organicos"
             precio="20.84"
             imagen={product1}
@@ -25,18 +26,21 @@ const Home = () => {
         </div>
         <div className="home__row">
           <Product
+            id={1233}
             titulo="Camisa deluxe edicion verano 2020 acabados de lujo"
             precio="55.00"
             imagen={camisa}
             rating={4}
           />
           <Product
+            id={1233}
             titulo="Chompa con acabados tradicionales edicion limitada"
             precio="46.00"
             imagen={chompa}
             rating={3}
           />
           <Product
+            id={1233}
             titulo="Reloj despertador rojo metalico con acabados modernos"
             precio="33.50"
             imagen={reloj}
@@ -45,12 +49,14 @@ const Home = () => {
         </div>
         <div className="home__row">
           <Product
+            id={1233}
             titulo="Set de juguetes de Mario Bros"
             precio="24.0"
             imagen={juguetes}
             rating={5}
           />
           <Product
+            id={1233}
             titulo="Laptop marca Asus 16 pulgadas  procesador i7"
             precio="2500.00"
             imagen={laptop}
@@ -59,6 +65,7 @@ const Home = () => {
         </div>
         <div className="home__row">
           <Product
+            id={1233}
             titulo="El amor en los tiempos del Colera , Edicion revisada 2020"
             precio="89.00"
             imagen={libro}

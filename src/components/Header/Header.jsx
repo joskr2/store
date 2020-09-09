@@ -5,8 +5,10 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "./../../media/images/logo.png";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../../StateProvider/Provider";
 
 const Header = () => {
+  const [state,disptach] = useStateValue();
   return (
     <div className="header">
       <Link to="/">

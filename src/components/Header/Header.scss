@@ -31,10 +31,6 @@ $PT-sans: "PT Sans", sans-serif;
       border-left-style: hidden;
     }
     &__input:focus {
-      border-bottom-style: hidden;
-      border-top-style: hidden;
-      border-right-style: hidden;
-      border-left-style: hidden;
       outline: none;
     }
     &__icon {
@@ -97,7 +93,6 @@ $PT-sans: "PT Sans", sans-serif;
 }
 .MuiBadge-colorPrimary {
   color: $background-color !important;
-
   background-color: white !important;
 }
 .MuiBadge-badge {
