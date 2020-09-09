@@ -3,6 +3,7 @@ import "./Header.scss";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "./../../media/images/logo.png";
+
 const Header = () => {
   return (
     <div className="header">
@@ -13,16 +14,16 @@ const Header = () => {
       </div>
       <div className="header__nav">
         <div className="header__nav__option">
-          <span className="header__nav__option__one">Hello Guest</span>
-          <span className="header__nav__option__two">Sign In</span>
+          <span className="header__nav__option__one">Hola</span>
+          <span className="header__nav__option__two">Acceder</span>
         </div>
         <div className="header__nav__option">
-          <span className="header__nav__option__three">Returns</span>
-          <span className="header__nav__option__four">& Orders</span>
+          <span className="header__nav__option__three">Devoluciones</span>
+          <span className="header__nav__option__four">& Pedidos</span>
         </div>
         <div className="header__nav__option">
-          <span className="header__nav__option__five">Your</span>
-          <span className="header__nav__option__six">Prime</span>
+          <span className="header__nav__option__five">Tus</span>
+          <span className="header__nav__option__six">Cupones</span>
         </div>
         <div className="header__nav__option__basket">
           <ShoppingCartIcon />
