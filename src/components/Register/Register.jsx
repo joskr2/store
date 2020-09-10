@@ -16,9 +16,14 @@ const Register = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
+          
         if (auth) {
-          history.push("/");
-        }
+            history.push("/");
+          }
+        return auth.user.updateProfile({
+            displayName: username,
+          });
+
       })
       .catch((error) => alert(error.message));
   };
