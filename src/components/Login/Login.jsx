@@ -19,14 +19,8 @@ const Login = () => {
   const register = (e) => {
     e.preventDefault();
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((error) => alert(error.message));
+    history.push("/register");
+      
   };
 
   return (
@@ -67,15 +61,19 @@ const Login = () => {
             >
               Iniciar sesión
             </button>
-          </form>
-        </div>
-        <button
+            <center>
+            <h4 className="login__container__question">¿Aún sin cuenta? Create una aqui </h4>
+          </center>
+            <button
           onClick={register}
           type="submit"
           className="login__button__register"
         >
-          Crea una cuenta nueva
+          Crear cuenta nueva
         </button>
+          </form>
+        </div>
+
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import Login from "./components/Login/Login";
 import { auth } from "./firebaseConfig";
 import { useStateValue } from "./StateProvider/Provider";
 import { SET_USER } from "./StateProvider/ActionTypes";
+import Register from "./components/Register/Register";
 
 const App = () => {
   const [{}, dispatch] = useStateValue();
@@ -33,6 +34,9 @@ const App = () => {
     <Router>
       <div className="app">
         <Switch>
+        <Route path="/register">
+            <Register/>
+          </Route>
           <Route path="/login">
             <Login />
           </Route>

@@ -32,7 +32,7 @@ const Header = () => {
             {user ? (
               <>
                 <span className="header__nav__option__one">
-                  {`Hola ${user && user.email}`}
+                  {`Hola ${user?.displayName}`}
                 </span>
                 <span className="header__nav__option__two">Salir</span>
               </>
