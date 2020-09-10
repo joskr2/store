@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$background-color: #f8bd59;
+$PT-sans: "PT Sans", sans-serif;
+
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $background-color;
+  &__logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__container {
+    width: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 5px solid white;
+    padding: 20px;
+    &__title {
+      font-weight: 500;
+      font-family: $PT-sans;
+      margin-bottom: 20px;
+      color: white;
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      &__email {
+        display: flex;
+        &__label {
+          font-family: $PT-sans;
+          margin-bottom: 5px;
+          color: white;
+          margin-right: 5px;
+        }
+        &__input {
+          height: 30px;
+          margin-bottom: 10px;
+          background-color: white;
+          width: 90%;
+          border-radius: 5px;
+          border-radius: 0.5em;
+          border-bottom-style: hidden;
+          border-top-style: hidden;
+          border-right-style: hidden;
+          border-left-style: hidden;
+        }
+        &__input:focus {
+          outline: none;
+        }
+      }
+      &__password {
+        display: flex;
+        &__label {
+          font-family: $PT-sans;
+          margin-bottom: 5px;
+          color: white;
+          margin-right: 5px;
+        }
+      }
+      &__password {
+        &__input {
+          height: 30px;
+          margin-bottom: 10px;
+          background-color: white;
+          width: 90%;
+          border-radius: 5px;
+          border-radius: 0.5em;
+          border-bottom-style: hidden;
+          border-top-style: hidden;
+          border-right-style: hidden;
+          border-left-style: hidden;
+        }
+        &__input:focus {
+          border-radius: 0.5em;
+          border-bottom-style: hidden;
+          border-top-style: hidden;
+          border-right-style: hidden;
+          border-left-style: hidden;
+          outline: none;
+        }
+      }
+    }
+  }
+  &__button {
+    &__signin {
+      margin-top: 8px;
+      padding: 5px;
+      color: $background-color;
+      background-color: white;
+      font-family: $PT-sans;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+    }
+    &__signin:focus {
+      cursor: pointer;
+    }
+    &__signin:hover {
+      cursor: pointer;
+    }
+    &__register {
+      margin-top: 8px;
+      padding: 5px;
+      color: $background-color;
+      background-color: white;
+      font-family: $PT-sans;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+    }
+    &__register:focus {
+      cursor: pointer;
+    }
+    &__register:hover {
+      cursor: pointer;
+    }
+  }
+}

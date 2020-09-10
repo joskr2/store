@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$background-color: #f8bd59;
+$PT-sans: "PT Sans", sans-serif;
+
+
+.checkoutProduct{
+    
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &__image{
+        object-fit: contain;
+        width: 100px;
+        height: 100px;
+    }
+    &__info{
+
+        padding-left: 20px;
+        &__title{
+            font-size: 17px;
+            font-weight: 800;
+            font-family: $PT-sans;
+        }
+        &__price{
+            &__currency{
+                font-family: $PT-sans;
+            }
+            &__amount{
+                font-family: $PT-sans;
+            }
+        }
+    }
+    &__rating{
+        display: flex;
+
+    }
+    &__button {
+        margin-top: 8px;
+        padding: 5px;
+        color: white;
+        background-color: $background-color;
+        font-family: $PT-sans;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+      }
+      &__button:focus {
+        cursor: pointer;
+      }
+      &__button:hover {
+        cursor: pointer;
+      }
+}

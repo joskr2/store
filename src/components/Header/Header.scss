@@ -10,6 +10,10 @@ $PT-sans: "PT Sans", sans-serif;
   position: sticky;
   top: 0;
   z-index: 100;
+  &__link {
+    margin-top: 5px;
+    text-decoration: none;
+  }
   &__logo {
     width: 100px;
     object-fit: contain;
@@ -56,6 +60,7 @@ $PT-sans: "PT Sans", sans-serif;
         font-family: $PT-sans;
         font-size: 14px;
         font-weight: 800;
+        text-decoration: none;
       }
       &__two {
         font-family: $PT-sans;
@@ -100,4 +105,11 @@ $PT-sans: "PT Sans", sans-serif;
   border: 1px solid lightgrey !important;
   font-family: $PT-sans !important;
   font-weight: bolder !important;
+}
+
+.title {
+  font-family: $PT-sans;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
 }
