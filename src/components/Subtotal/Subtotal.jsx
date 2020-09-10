@@ -8,7 +8,7 @@ const Subtotal = () => {
 
   const getBasketTotal = () => {
     return basket
-      .map((item) => +item.price)
+      ?.map((item) => +item.price)
       .reduce((prev, curr) => prev + curr, 0);
   };
 
@@ -19,7 +19,7 @@ const Subtotal = () => {
           <>
             <p className="subtotal__title">
               Subtotal ({basket?.length} items) :
-              <strong>{`  ${getBasketTotal() * basket?.length}`}</strong>
+              <strong>{` S/.${getBasketTotal()}`}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> Esta orden contiene un regalo
