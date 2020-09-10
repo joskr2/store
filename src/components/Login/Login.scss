@@ -81,6 +81,11 @@ $PT-sans: "PT Sans", sans-serif;
           border-left-style: hidden;
         }
         &__input:focus {
+          border-radius: 0.5em;
+          border-bottom-style: hidden;
+          border-top-style: hidden;
+          border-right-style: hidden;
+          border-left-style: hidden;
           outline: none;
         }
       }

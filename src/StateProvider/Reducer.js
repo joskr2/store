@@ -1,6 +1,6 @@
 // reducer es como enviamos una accion a la store(donde se guardan los datos globalemnte )
 import { initialState } from "./State";
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from "./ActionTypes";
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_USER } from "./ActionTypes";
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,6 +26,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         basket: newBasket,
+      };
+    case SET_USER:
+      return {
+        ...state,
+        user: action.user,
       };
     default:
       return state;

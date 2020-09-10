@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 import "./Login.scss";
 import logo from "./../../media/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "../../firebaseConfig";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-const signin = (e) => {
+  const signin = (e) => {
     e.preventDefault();
-    console.log("inicio de sesion");
-}
-const register = (e) => {
+    auth.signInWithEmailAndPassword(email, password).then((auth) => {
+      history.push("/");
+      
+    }).catch(error => alert(error.message));
+  };
+  const register = (e) => {
     e.preventDefault();
-    console.log("registro");
-}
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <>
@@ -47,10 +60,20 @@ const register = (e) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button onClick={signin} type="submit" className="login__button__signin">Iniciar sesión</button>
+            <button
+              onClick={signin}
+              type="submit"
+              className="login__button__signin"
+            >
+              Iniciar sesión
+            </button>
           </form>
         </div>
-        <button onClick={register} type="submit" className="login__button__register">
+        <button
+          onClick={register}
+          type="submit"
+          className="login__button__register"
+        >
           Crea una cuenta nueva
         </button>
       </div>
