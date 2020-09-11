@@ -7,6 +7,7 @@ import logo from "./../../media/images/logo.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../StateProvider/Provider";
 import { auth } from "./../../firebaseConfig";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -28,7 +29,11 @@ const Header = () => {
       </div>
       <div className="header__nav">
         <Link to={!user && "/login"} className="header__link">
-          <div onClick={handleAuth} className="header__nav__option">
+          <motion.div
+            whileHover={{ textShadow: "0px 0px 8px rgba(255,255,255)" }}
+            onClick={handleAuth}
+            className="header__nav__option"
+          >
             {user ? (
               <>
                 <span className="header__nav__option__one">
@@ -38,13 +43,12 @@ const Header = () => {
               </>
             ) : (
               <>
-              <center>
-              <span className="title">Acceder</span>
-              </center>
-               
+                <center>
+                  <span className="title">Acceder</span>
+                </center>
               </>
             )}
-          </div>
+          </motion.div>
         </Link>
         <div className="header__nav__option">
           <span className="header__nav__option__three">Devoluciones</span>
@@ -58,11 +62,15 @@ const Header = () => {
           className="header__nav__option__basket header__link"
           to="/checkout"
         >
-          <div>
+          <motion.div
+            initial={{ y: -150 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 60 }}
+          >
             <Badge badgeContent={basket?.length} color="primary">
               <ShoppingCartIcon />
             </Badge>
-          </div>
+          </motion.div>
         </Link>
       </div>
     </div>

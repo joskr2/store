@@ -7,7 +7,7 @@ const reducer = (state = initialState, action) => {
     case ADD_TO_BASKET:
       return {
         ...state.basket,
-        basket: [...state.basket, action.item],
+        basket: [...state.basket, action.item]
       };
     case REMOVE_FROM_BASKET:
       const index = state.basket.findIndex(
