@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import {  Switch, Route , useLocation } from "react-router-dom";
 import Checkout from "./components/Checkout/Checkout";
 import Login from "./components/Login/Login";
 import { auth } from "./firebaseConfig";
@@ -11,6 +12,7 @@ import { SET_USER } from "./StateProvider/ActionTypes";
 import Register from "./components/Register/Register";
 
 const App = () => {
+  const location = useLocation();
   const [{user}, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -31,9 +33,9 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <AnimatePresence>
       <div className="app">
-        <Switch>
+        <Switch location={location} key={location.key}>
         <Route path="/register">
             <Register/>
           </Route>
@@ -50,7 +52,7 @@ const App = () => {
           </Route>
         </Switch>
       </div>
-    </Router>
+    </AnimatePresence>
   );
 };
 
