@@ -3,6 +3,22 @@ import "./Register.scss";
 import logo from "./../../media/images/logo-registro.png";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebaseConfig";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Register = () => {
   const history = useHistory();
@@ -16,21 +32,25 @@ const Register = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-          
         if (auth) {
-            history.push("/");
-          }
+          history.push("/");
+        }
         return auth.user.updateProfile({
-            displayName: username,
-          });
-
+          displayName: username,
+        });
       })
       .catch((error) => alert(error.message));
   };
 
   return (
     <>
-      <div className="signup">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="signup"
+      >
         <Link to="/">
           <img className="signup__logo" src={logo} alt="logo" />
         </Link>
@@ -70,16 +90,17 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
               onClick={register}
               type="submit"
               className="signup__button__signup"
             >
               Registrate
-            </button>
+            </motion.button>
           </form>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

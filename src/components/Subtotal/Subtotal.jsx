@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../../StateProvider/Provider";
+import { motion } from "framer-motion";
 import "./Subtotal.scss";
 
 const Subtotal = () => {
@@ -32,7 +33,9 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"S/. "}
       />
-      <button className="subtotal__button">Procecer al pago</button>
+      <motion.button whileHover={{ scale: 1.1 }} className="subtotal__button">
+        Procecer al pago
+      </motion.button>
     </div>
   );
 };

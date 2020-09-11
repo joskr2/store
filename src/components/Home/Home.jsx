@@ -9,10 +9,32 @@ import libro from "./../../media/images/libro.jpg";
 import reloj from "./../../media/images/reloj.jpg";
 import "./Home.scss";
 import Product from "../Product/Product";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Home = () => {
   return (
-    <div className="home">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="home"
+    >
       <div className="home__container">
         <img className="home__image" src={shopping} alt="shopping_market" />
         <div className="home__row">
@@ -73,7 +95,7 @@ const Home = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

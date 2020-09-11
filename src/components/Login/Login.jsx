@@ -3,6 +3,22 @@ import "./Login.scss";
 import logo from "./../../media/images/logo.png";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebaseConfig";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Login = () => {
   const history = useHistory();
@@ -11,21 +27,28 @@ const Login = () => {
 
   const signin = (e) => {
     e.preventDefault();
-    auth.signInWithEmailAndPassword(email, password).then((auth) => {
-      history.push("/");
-      
-    }).catch(error => alert(error.message));
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
   };
   const register = (e) => {
     e.preventDefault();
 
     history.push("/register");
-      
   };
 
   return (
     <>
-      <div className="login">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="login"
+      >
         <Link to="/">
           <img className="login__logo" src={logo} alt="logo" />
         </Link>
@@ -54,27 +77,30 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
               onClick={signin}
               type="submit"
               className="login__button__signin"
             >
               Iniciar sesión
-            </button>
+            </motion.button>
             <center>
-            <h4 className="login__container__question">¿Aún sin cuenta? Create una aqui </h4>
-          </center>
-            <button
-          onClick={register}
-          type="submit"
-          className="login__button__register"
-        >
-          Crear cuenta nueva
-        </button>
+              <h4 className="login__container__question">
+                ¿Aún sin cuenta? Create una aqui{" "}
+              </h4>
+            </center>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              onClick={register}
+              type="submit"
+              className="login__button__register"
+            >
+              Crear cuenta nueva
+            </motion.button>
           </form>
         </div>
-
-      </div>
+      </motion.div>
     </>
   );
 };

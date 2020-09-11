@@ -8,6 +8,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state.basket,
         basket: [...state.basket, action.item],
+        user: action.user
       };
     case REMOVE_FROM_BASKET:
       const index = state.basket.findIndex(

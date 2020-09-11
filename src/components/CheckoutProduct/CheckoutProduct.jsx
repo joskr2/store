@@ -3,6 +3,7 @@ import "./CheckoutProduct.scss";
 import { useStateValue } from "../../StateProvider/Provider";
 import { REMOVE_FROM_BASKET } from "../../StateProvider/ActionTypes";
 
+
 const CheckoutProduct = (props) => {
   const { id, image, title, price, rating } = props;
 
@@ -35,10 +36,7 @@ const CheckoutProduct = (props) => {
               </span>
             ))}
         </div>
-        <button
-          onClick={removeFromBasket}
-          className="checkoutProduct__button"
-        >
+        <button onClick={removeFromBasket} className="checkoutProduct__button">
           Remover del carrito
         </button>
       </div>
