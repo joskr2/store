@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import "./Header.scss";
 import Badge from "@material-ui/core/Badge";
 import SearchIcon from "@material-ui/icons/Search";
@@ -11,12 +11,22 @@ import { motion } from "framer-motion";
 
 const Header = () => {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [route,setRoute] = useState("")
 
   const handleAuth = () => {
     if (user) {
       auth.signOut();
     }
   };
+
+useEffect(() => {
+  if(!user){
+    setRoute("/login")
+  }else{
+    setRoute("/")
+  }
+}, [user])
+
 
   return (
     <div className="header">
@@ -28,7 +38,7 @@ const Header = () => {
         <SearchIcon className="header__search__icon" />
       </div>
       <div className="header__nav">
-        <Link to={!user && "/login"} className="header__link">
+        <Link to={route} className="header__link">
           <motion.div
             whileHover={{ textShadow: "0px 0px 8px rgba(255,255,255)" }}
             onClick={handleAuth}

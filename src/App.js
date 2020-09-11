@@ -17,7 +17,7 @@ const App = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("el usuario es: ",authUser)
+      //console.log("el usuario es: ",authUser)
       if (authUser) {
         dispatch({
           type: SET_USER,
