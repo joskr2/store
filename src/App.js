@@ -11,7 +11,7 @@ import { SET_USER } from "./StateProvider/ActionTypes";
 import Register from "./components/Register/Register";
 
 const App = () => {
-  const [{}, dispatch] = useStateValue();
+  const [{user}, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -41,7 +41,7 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/checkout">
-            <Header />
+            <Header  />
             <Checkout />
           </Route>
           <Route path="/">

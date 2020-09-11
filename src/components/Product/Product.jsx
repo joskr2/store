@@ -10,7 +10,7 @@ const Product = (props) => {
 
   const addToBasket = () => {
     // aqui envio el item a la store
-
+    console.log(user,"usuario cuando se hace click en el componente product")
     dispatch({
       //que estoy haciendo-> estoy Agregando al carrito
       type: ADD_TO_BASKET,
@@ -22,7 +22,7 @@ const Product = (props) => {
         price: precio,
         rating: rating,
       },
-      userName: user.displayName
+      user: user
     });
   };
 

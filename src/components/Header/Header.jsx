@@ -34,7 +34,7 @@ const Header = () => {
             onClick={handleAuth}
             className="header__nav__option"
           >
-            {user ? (
+            {/* {user ? (
               <>
                 <span className="header__nav__option__one">
                   {`Hola ${user?.displayName}`}
@@ -47,6 +47,21 @@ const Header = () => {
                   <span className="title">Acceder</span>
                 </center>
               </>
+            )} */}
+
+            {user && (
+              <>
+                <span className="header__nav__option__one">
+                  {`Hola ${user?.displayName}`}
+                </span>
+                <span className="header__nav__option__two">Salir</span>
+              </>
+            )}
+
+            {!user && (
+              <center>
+                <span className="title">Acceder</span>
+              </center>
             )}
           </motion.div>
         </Link>
