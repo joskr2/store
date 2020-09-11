@@ -4,6 +4,10 @@ import logo from "./../../media/images/logo-registro.png";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebaseConfig";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const containerVariants = {
   hidden: {
@@ -39,7 +43,7 @@ const Register = () => {
           displayName: username,
         });
       })
-      .catch((error) => alert(error.message));
+      .catch(() => MySwal.fire("", "Error al registrar el usuario", "error"));
   };
 
   return (
@@ -64,6 +68,7 @@ const Register = () => {
                 Usuario
               </h5>
               <input
+                required
                 className="signup__container__form__username__input"
                 type="text"
                 value={username}
@@ -73,6 +78,7 @@ const Register = () => {
             <div className="signup__container__form__email">
               <h5 className="signup__container__form__email__label">Email</h5>
               <input
+                required
                 className="signup__container__form__email__input"
                 type="text"
                 value={email}
@@ -84,6 +90,7 @@ const Register = () => {
                 Contraseña
               </h5>
               <input
+                required
                 className="signup__container__form__password__input"
                 type="password"
                 value={password}

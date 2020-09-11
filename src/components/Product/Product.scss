@@ -42,11 +42,25 @@ $PT-sans: "PT Sans", sans-serif;
     font-weight: bold;
     border-radius: 5px;
     border: none;
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
   }
   &__button:focus {
     cursor: pointer;
+    border: none;
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
   }
   &__button:hover {
     cursor: pointer;
+    border: none;
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
   }
 }

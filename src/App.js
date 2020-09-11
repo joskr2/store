@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import { AnimatePresence } from "framer-motion";
-import {  Switch, Route , useLocation } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Checkout from "./components/Checkout/Checkout";
 import Login from "./components/Login/Login";
 import { auth } from "./firebaseConfig";
@@ -13,7 +13,7 @@ import Register from "./components/Register/Register";
 
 const App = () => {
   const location = useLocation();
-  const [{user}, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -30,20 +30,20 @@ const App = () => {
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
-    <AnimatePresence>
-      <div className="app">
+    <div className="app">
+      <AnimatePresence>
         <Switch location={location} key={location.key}>
-        <Route path="/register">
-            <Register/>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/checkout">
-            <Header  />
+            <Header />
             <Checkout />
           </Route>
           <Route path="/">
@@ -51,8 +51,8 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-      </div>
-    </AnimatePresence>
+      </AnimatePresence>
+    </div>
   );
 };
 

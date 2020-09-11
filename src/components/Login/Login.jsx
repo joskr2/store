@@ -4,6 +4,10 @@ import logo from "./../../media/images/logo.png";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../firebaseConfig";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const containerVariants = {
   hidden: {
@@ -29,10 +33,10 @@ const Login = () => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
+      .then(() => {
         history.push("/");
       })
-      .catch((error) => alert(error.message));
+      .catch(() => MySwal.fire("", "Error al iniciar sesión", "error"));
   };
   const register = (e) => {
     e.preventDefault();

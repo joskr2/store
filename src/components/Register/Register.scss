@@ -110,6 +110,10 @@ $PT-sans: "PT Sans", sans-serif;
     }
   }
   &__button {
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
     &__signup {
       margin-top: 8px;
       padding: 5px;
@@ -122,9 +126,11 @@ $PT-sans: "PT Sans", sans-serif;
     }
     &__signup:focus {
       cursor: pointer;
+      border: none;
     }
     &__signup:hover {
       cursor: pointer;
+      border: none;
     }
   }
 }
