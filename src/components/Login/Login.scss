@@ -107,12 +107,18 @@ $PT-sans: "PT Sans", sans-serif;
       font-weight: bold;
       border-radius: 5px;
       border: none;
+      border-bottom-style: hidden;
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
     }
     &__signin:focus {
       cursor: pointer;
+      border: none;
     }
     &__signin:hover {
       cursor: pointer;
+      border: none;
     }
     &__register {
 
@@ -126,9 +132,11 @@ $PT-sans: "PT Sans", sans-serif;
     }
     &__register:focus {
       cursor: pointer;
+      border: none;
     }
     &__register:hover {
       cursor: pointer;
+      border: none;
     }
   }
 }

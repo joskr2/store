@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.scss";
 import Badge from "@material-ui/core/Badge";
 import SearchIcon from "@material-ui/icons/Search";
@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const Header = () => {
   const [{ basket, user }, dispatch] = useStateValue();
-  const [route,setRoute] = useState("")
+  const [route, setRoute] = useState("");
 
   const handleAuth = () => {
     if (user) {
@@ -19,14 +19,13 @@ const Header = () => {
     }
   };
 
-useEffect(() => {
-  if(!user){
-    setRoute("/login")
-  }else{
-    setRoute("/")
-  }
-}, [user])
-
+  useEffect(() => {
+    if (!user) {
+      setRoute("/login");
+    } else {
+      setRoute("/");
+    }
+  }, [user]);
 
   return (
     <div className="header">
@@ -44,11 +43,17 @@ useEffect(() => {
             onClick={handleAuth}
             className="header__nav__option"
           >
-            {/* {user ? (
+            {user ? (
               <>
-                <span className="header__nav__option__one">
-                  {`Hola ${user?.displayName}`}
-                </span>
+                {user.displayName ? (
+                  <span className="header__nav__option__one">
+                    {`${"Hola " + user.displayName}`}
+                  </span>
+                ) : (
+                  <span className="header__nav__option__one">
+                    {`${"Bienvenido(a)"}`}
+                  </span>
+                )}
                 <span className="header__nav__option__two">Salir</span>
               </>
             ) : (
@@ -57,21 +62,6 @@ useEffect(() => {
                   <span className="title">Acceder</span>
                 </center>
               </>
-            )} */}
-
-            {user && (
-              <>
-                <span className="header__nav__option__one">
-                  {`Hola ${user?.displayName}`}
-                </span>
-                <span className="header__nav__option__two">Salir</span>
-              </>
-            )}
-
-            {!user && (
-              <center>
-                <span className="title">Acceder</span>
-              </center>
             )}
           </motion.div>
         </Link>

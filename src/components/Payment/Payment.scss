@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$background-color: #f8bd59;
+$PT-sans: "PT Sans", sans-serif;
+
+.payment {
+  background-color: white;
+  &__container {
+    &__title {
+      text-align: center;
+      padding: 10px;
+      font-weight: 400;
+      font-family: $PT-sans;
+      background-color: rgb(234, 237, 237);
+      border-bottom: 1px solid lightgray;
+      &__tag {
+        text-decoration: none;
+      }
+    }
+  }
+  &__section {
+    display: flex;
+    padding: 20px;
+    margin: 0 20px;
+    border-bottom: 1px solid lightgray;
+    &__title {
+      font-family: $PT-sans;
+      flex: 0.2;
+    }
+    &__address {
+      flex: 0.8;
+      & > p {
+        font-family: $PT-sans;
+      }
+    }
+    &__items {
+      flex: 0.8;
+    }
+  }
+}

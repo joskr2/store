@@ -7,7 +7,7 @@ import { REMOVE_FROM_BASKET } from "../../StateProvider/ActionTypes";
 const CheckoutProduct = (props) => {
   const { id, image, title, price, rating } = props;
 
-  const [{ basket }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
     dispatch({

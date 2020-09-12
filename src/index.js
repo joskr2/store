@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { StateProvider } from './StateProvider/Provider';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import {initialState} from "./StateProvider/State";
 import reducer from './StateProvider/Reducer';
 
