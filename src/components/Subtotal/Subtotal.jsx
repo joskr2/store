@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider/Provider";
 import { motion } from "framer-motion";
 import "./Subtotal.scss";
 
 const Subtotal = () => {
+  const history = useHistory();
+
   const [{ basket }, dispatch] = useStateValue();
 
   const getBasketTotal = () => {
@@ -33,7 +36,11 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"S/. "}
       />
-      <motion.button whileHover={{ scale: 1.1 }} className="subtotal__button">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        className="subtotal__button"
+        onClick={() => history.push("/payment")}
+      >
         Procecer al pago
       </motion.button>
     </div>

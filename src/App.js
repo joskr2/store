@@ -10,6 +10,7 @@ import { auth } from "./firebaseConfig";
 import { useStateValue } from "./StateProvider/Provider";
 import { SET_USER } from "./StateProvider/ActionTypes";
 import Register from "./components/Register/Register";
+import Payment from "./components/Payment/Payment";
 
 const App = () => {
   const location = useLocation();
@@ -45,6 +46,10 @@ const App = () => {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment/>
           </Route>
           <Route path="/">
             <Header />

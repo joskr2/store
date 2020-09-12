@@ -34,7 +34,7 @@ $PT-sans: "PT Sans", sans-serif;
     &__form {
       display: flex;
       flex-direction: column;
-      &__username {
+      &__style {
         display: flex;
         &__label {
           font-family: $PT-sans;
@@ -53,57 +53,6 @@ $PT-sans: "PT Sans", sans-serif;
           border-radius: 0.5em;
         }
         &__input:focus {
-          outline: none;
-        }
-      }
-      &__email {
-        display: flex;
-        &__label {
-          font-family: $PT-sans;
-          margin-bottom: 5px;
-          color: $background-color;
-          margin-right: 20px;
-          width: 10%;
-        }
-        &__input {
-          height: 30px;
-          margin-bottom: 10px;
-          background-color: white;
-          border: 1px solid $background-color;
-          width: 90%;
-          border-radius: 5px;
-          border-radius: 0.5em;
-        }
-        &__input:focus {
-          outline: none;
-        }
-      }
-      &__password {
-        display: flex;
-        &__label {
-          font-family: $PT-sans;
-          margin-right: 30px;
-          color: $background-color;
-          width: 10%;
-        }
-      }
-      &__password {
-        &__input {
-          height: 30px;
-          margin-left: 20px;
-          margin-bottom: 10px;
-          background-color: white;
-          border: 1px solid $background-color;
-          width: 90%;
-          border-radius: 5px;
-          border-radius: 0.5em;
-        }
-        &__input:focus {
-          border-radius: 0.5em;
-          border-bottom-style: hidden;
-          border-top-style: hidden;
-          border-right-style: hidden;
-          border-left-style: hidden;
           outline: none;
         }
       }
