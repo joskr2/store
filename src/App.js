@@ -11,6 +11,12 @@ import { useStateValue } from "./StateProvider/Provider";
 import { SET_USER } from "./StateProvider/ActionTypes";
 import Register from "./components/Register/Register";
 import Payment from "./components/Payment/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+  "pk_test_51H6qfWKS4AcZSboOVglttRHHZo6dDnXLdrAdL2088l7FW7Ynm04ezWFony6atTzMOPe4qZpSYIeLVKTSGFkreEh500HGDKce1f"
+);
 
 const App = () => {
   const location = useLocation();
@@ -49,7 +55,9 @@ const App = () => {
           </Route>
           <Route path="/payment">
             <Header />
-            <Payment/>
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />

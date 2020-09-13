@@ -2,13 +2,19 @@
 import { initialState } from "./State";
 import { ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_USER } from "./ActionTypes";
 
+export const getBasketTotal = (basket) => {
+  return basket
+    ?.map((item) => +item.price)
+    .reduce((prev, curr) => prev + curr, 0);
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_BASKET:
       return {
         ...state.basket,
         basket: [...state.basket, action.item],
-        user: action.user
+        user: action.user,
       };
     case REMOVE_FROM_BASKET:
       const index = state.basket.findIndex(
