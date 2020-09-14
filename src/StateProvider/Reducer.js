@@ -1,6 +1,11 @@
 // reducer es como enviamos una accion a la store(donde se guardan los datos globalemnte )
 import { initialState } from "./State";
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_USER } from "./ActionTypes";
+import {
+  ADD_TO_BASKET,
+  EMPTY_BASKET,
+  REMOVE_FROM_BASKET,
+  SET_USER,
+} from "./ActionTypes";
 
 export const getBasketTotal = (basket) => {
   return basket
@@ -15,6 +20,11 @@ const reducer = (state = initialState, action) => {
         ...state.basket,
         basket: [...state.basket, action.item],
         user: action.user,
+      };
+    case EMPTY_BASKET:
+      return {
+        ...state,
+        basket: [],
       };
     case REMOVE_FROM_BASKET:
       const index = state.basket.findIndex(

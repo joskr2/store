@@ -6,10 +6,11 @@ import "./Payment.scss";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../../StateProvider/Reducer";
-import axios from "./../../Request/axios"
+import axios from "./../../Request/axios";
+import { EMPTY_BASKET } from "../../StateProvider/ActionTypes";
+import { db } from "../../firebaseConfig";
 
 const Payment = () => {
-
   const history = useHistory();
 
   const [{ basket, user }, dispatch] = useStateValue();
@@ -29,35 +30,56 @@ const Payment = () => {
     const getClientSecret = async () => {
       const response = await axios({
         method: "POST",
-        url: `/payment/create?total=${getBasketTotal(basket)* 100}`,
+        url: `/payment/create?total=${getBasketTotal(basket) * 100}`,
         // por defecto en dolares($) , ahjustar dinamicamente , par que cobre en soles ?
-        // hacer esto en el reducer , usar una libreria de conversion de moneda? o hacer 
+        // hacer esto en el reducer , usar una libreria de conversion de moneda? o hacer
         //el calculo manual con un precio fijo de 3.15 soles x dolar?
-        //ACEPTARLA EN DOLARES PORQUE STRIPE NO FUNCIONA PARA PERU , VER EL TEMA DE MOSTARR EL S/. EN LUGAR DEL SIMBOLO DE DOLAR EN EL RENDER 
+        //ACEPTARLA EN DOLARES PORQUE STRIPE NO FUNCIONA PARA PERU , VER EL TEMA DE MOSTARR EL S/. EN LUGAR DEL SIMBOLO DE DOLAR EN EL RENDER
         // DE CHECKOUT
         //100 SIGNIFICA   la subunidad de la moneda , en este caso significa monedas(1pennie)
       });
-      setClientSecret(response.data.clientSecret)
+      setClientSecret(response?.data?.clientSecret);
     };
     getClientSecret();
   }, [basket]);
+
+  console.log("la clave es>>>>>>>>>>> ", clientSecret);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
 
-    const payload = await stripe.confirmCardPayment(clientSecret, {
-      payment_method : {
-        card:elements.getElement(CardElement)
-      }
-    }).then(({paymentIntent})=>{
-      //paymentIntent es la confirmacion
-      setSucceded(true)
-      setError(null)
-      setProcessing(false)
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements?.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        //paymentIntent es la confirmacion
 
-      history.replace("/orders")
-    })
+        db
+        .collection("users")
+        .doc(user?.uid)
+        .collection("orders")
+        .doc(paymentIntent.id)
+        .set({
+          basket:basket,
+          amount:paymentIntent.amount,
+          created:paymentIntent.created
+        })
+
+
+        setSucceded(true);
+        setError(null);
+        setProcessing(false);
+
+        dispatch({
+          type:EMPTY_BASKET
+        })
+
+        history.replace("/orders");
+      });
   };
   const handleChange = (e) => {
     setDisabled(e.empty);
@@ -108,7 +130,7 @@ const Payment = () => {
               <CurrencyFormat
                 renderText={(value) => (
                   <>
-                    <p className="subtotal__title">
+                    <p className="payment__title">
                       Precio total :<strong>{`${value}`}</strong>
                     </p>
                   </>

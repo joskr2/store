@@ -3,9 +3,8 @@ import "./CheckoutProduct.scss";
 import { useStateValue } from "../../StateProvider/Provider";
 import { REMOVE_FROM_BASKET } from "../../StateProvider/ActionTypes";
 
-
 const CheckoutProduct = (props) => {
-  const { id, image, title, price, rating } = props;
+  const { id, image, title, price, rating, hiddenButton } = props;
 
   const [{}, dispatch] = useStateValue();
 
@@ -36,9 +35,14 @@ const CheckoutProduct = (props) => {
               </span>
             ))}
         </div>
-        <button onClick={removeFromBasket} className="checkoutProduct__button">
-          Remover del carrito
-        </button>
+        {!hiddenButton && (
+          <button
+            onClick={removeFromBasket}
+            className="checkoutProduct__button"
+          >
+            Remover del carrito
+          </button>
+        )}
       </div>
     </div>
   );

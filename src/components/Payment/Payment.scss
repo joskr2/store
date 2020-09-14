@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
 $background-color: #f8bd59;
 $PT-sans: "PT Sans", sans-serif;
 
@@ -26,6 +25,7 @@ $PT-sans: "PT Sans", sans-serif;
     &__title {
       font-family: $PT-sans;
       flex: 0.2;
+      padding-bottom: 20px;
     }
     &__address {
       flex: 0.8;
@@ -36,8 +36,27 @@ $PT-sans: "PT Sans", sans-serif;
     &__items {
       flex: 0.8;
     }
-    &__details{
+    &__details {
       flex: 0.8;
+      & > form {
+        max-width: 400px;
+      }
+    }
+    &__button {
+      margin-top: 8px;
+      padding: 5px;
+      color: white;
+      background-color: $background-color;
+      font-family: $PT-sans;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+    }
+    &__button:focus {
+      cursor: pointer;
+    }
+    &__button:hover {
+      cursor: pointer;
     }
   }
 }
