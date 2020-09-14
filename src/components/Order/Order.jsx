@@ -3,12 +3,33 @@ import "./Order.scss";
 import moment from "moment";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
+import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Order = (props) => {
   const { order } = props;
   return (
-    <div className="order">
+    <motion.div
+      className="order"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <h2 className="order__title">Order</h2>
       <p className="order__content">
         {moment.unix(order.data.created).format("LLL")}
@@ -19,10 +40,10 @@ const Order = (props) => {
         <CheckoutProduct
           id={item.id}
           title={item.title}
-          image={item.title}
+          image={item.image}
           price={item.price}
           rating={item.rating}
-          hiddenButton 
+          hiddenButton
         />
       ))}
 
@@ -40,7 +61,7 @@ const Order = (props) => {
         thousandSeparator={true}
         prefix={"$"}
       />
-    </div>
+    </motion.div>
   );
 };
 

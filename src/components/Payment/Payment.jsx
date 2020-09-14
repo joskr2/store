@@ -9,6 +9,22 @@ import { getBasketTotal } from "../../StateProvider/Reducer";
 import axios from "./../../Request/axios";
 import { EMPTY_BASKET } from "../../StateProvider/ActionTypes";
 import { db } from "../../firebaseConfig";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Payment = () => {
   const history = useHistory();
@@ -43,8 +59,6 @@ const Payment = () => {
     getClientSecret();
   }, [basket]);
 
-  console.log("la clave es>>>>>>>>>>> ", clientSecret);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -59,25 +73,23 @@ const Payment = () => {
       .then(({ paymentIntent }) => {
         //paymentIntent es la confirmacion
 
-        db
-        .collection("users")
-        .doc(user?.uid)
-        .collection("orders")
-        .doc(paymentIntent.id)
-        .set({
-          basket:basket,
-          amount:paymentIntent.amount,
-          created:paymentIntent.created
-        })
-
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
 
         setSucceded(true);
         setError(null);
         setProcessing(false);
 
         dispatch({
-          type:EMPTY_BASKET
-        })
+          type: EMPTY_BASKET,
+        });
 
         history.replace("/orders");
       });
@@ -88,7 +100,13 @@ const Payment = () => {
   };
 
   return (
-    <div className="payment">
+    <motion.div
+      className="payment"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div className="payment__container">
         <h1 className="payment__container__title">
           Revisar{" "}
@@ -155,7 +173,7 @@ const Payment = () => {
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

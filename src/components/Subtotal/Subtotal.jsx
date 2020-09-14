@@ -6,19 +6,39 @@ import { motion } from "framer-motion";
 import "./Subtotal.scss";
 import { getBasketTotal } from "../../StateProvider/Reducer";
 
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
+
 const Subtotal = () => {
   const history = useHistory();
 
   const [{ basket }, dispatch] = useStateValue();
 
   return (
-    <div className="subtotal">
+    <motion.div
+      className="subtotal"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <CurrencyFormat
         renderText={(value) => (
           <>
             <p className="subtotal__title">
-              Subtotal ({basket?.length} items) :
-              <strong>{`${value}`}</strong>
+              Subtotal ({basket?.length} items) :<strong>{`${value}`}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> Esta orden contiene un regalo
@@ -38,7 +58,7 @@ const Subtotal = () => {
       >
         Procecer al pago
       </motion.button>
-    </div>
+    </motion.div>
   );
 };
 

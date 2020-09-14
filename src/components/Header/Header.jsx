@@ -4,14 +4,16 @@ import Badge from "@material-ui/core/Badge";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "./../../media/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider/Provider";
 import { auth } from "./../../firebaseConfig";
 import { motion } from "framer-motion";
 
 const Header = () => {
+  const history = useHistory();
+
   // eslint-disable-next-line no-unused-vars
-  const [{ basket, user }, dispatch] = useStateValue(); 
+  const [{ basket, user }, dispatch] = useStateValue();
   const [route, setRoute] = useState("");
 
   const handleAuth = () => {
@@ -30,9 +32,12 @@ const Header = () => {
 
   return (
     <div className="header">
-      <Link to="/">
-        <img className="header__logo" src={logo} alt="logo" />
-      </Link>
+      <img
+        className="header__logo"
+        src={logo}
+        alt="logo"
+        onClick={() => history.push("/")}
+      />
       <div className="header__search">
         <input type="text" className="header__search__input" />
         <SearchIcon className="header__search__icon" />

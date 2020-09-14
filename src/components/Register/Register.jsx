@@ -170,23 +170,23 @@ const Register = () => {
               />
             </div> */}
 
-            <div className="signup__container__form__email">
-              <h5 className="signup__container__form__email__label">Email</h5>
+            <div className="signup__container__form__style">
+              <h5 className="signup__container__form__style__label">Email</h5>
               <input
                 required
-                className="signup__container__form__email__input"
+                className="signup__container__form__style__input"
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="signup__container__form__password">
-              <h5 className="signup__container__form__password__label">
+            <div className="signup__container__form__style">
+              <h5 className="signup__container__form__style__label">
                 Contraseña
               </h5>
               <input
                 required
-                className="signup__container__form__password__input"
+                className="signup__container__form__style__input"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
