@@ -4,26 +4,21 @@ import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider/Provider";
 import { motion } from "framer-motion";
 import "./Subtotal.scss";
+import { getBasketTotal } from "../../StateProvider/Reducer";
 
 const Subtotal = () => {
   const history = useHistory();
 
   const [{ basket }, dispatch] = useStateValue();
 
-  const getBasketTotal = () => {
-    return basket
-      ?.map((item) => +item.price)
-      .reduce((prev, curr) => prev + curr, 0);
-  };
-
   return (
     <div className="subtotal">
       <CurrencyFormat
-        renderText={() => (
+        renderText={(value) => (
           <>
             <p className="subtotal__title">
               Subtotal ({basket?.length} items) :
-              <strong>{` S/.${getBasketTotal()}`}</strong>
+              <strong>{`${value}`}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> Esta orden contiene un regalo
@@ -31,10 +26,10 @@ const Subtotal = () => {
           </>
         )}
         decimalScale={2}
-        value={getBasketTotal()}
+        value={getBasketTotal(basket)}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"S/. "}
+        prefix={"$"}
       />
       <motion.button
         whileHover={{ scale: 1.1 }}
