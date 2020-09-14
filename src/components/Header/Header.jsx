@@ -10,7 +10,8 @@ import { auth } from "./../../firebaseConfig";
 import { motion } from "framer-motion";
 
 const Header = () => {
-  const [{ basket, user }, dispatch] = useStateValue();
+  // eslint-disable-next-line no-unused-vars
+  const [{ basket, user }, dispatch] = useStateValue(); 
   const [route, setRoute] = useState("");
 
   const handleAuth = () => {
