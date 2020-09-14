@@ -8,6 +8,7 @@ $PT-sans: "PT Sans", sans-serif;
   padding: 20px;
   background-color: white;
   height: max-content;
+  flex-wrap: wrap;
   &__side {
     &__left {
       &__banner {

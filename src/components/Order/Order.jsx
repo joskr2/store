@@ -30,12 +30,16 @@ const Order = (props) => {
       animate="visible"
       exit="exit"
     >
-      <h2 className="order__title">Order</h2>
-      <p className="order__content">
-        {moment.unix(order.data.created).format("LLL")}
-      </p>
-      <p className="order__id">{order.id}</p>
-
+      <div className="order__container">
+        <div className="order__container__order">
+          <h2 className="order__container__title">Pedido</h2>
+         
+        </div>
+         <h3 className="order__container__id order__container__title">{ order.id}</h3>
+        <p className="order__container__content">
+          {moment.unix(order.data.created).format("LLL")}
+        </p>
+      </div>
       {order.data.basket?.map((item) => (
         <CheckoutProduct
           id={item.id}

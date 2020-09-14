@@ -17,7 +17,7 @@ $PT-sans: "PT Sans", sans-serif;
   &__logo {
     width: 100px;
     object-fit: contain;
-    margin: 0 20px;
+    margin-right: 5px;
     cursor: pointer;
   }
   &__search {
@@ -92,7 +92,7 @@ $PT-sans: "PT Sans", sans-serif;
         display: flex;
         align-items: center;
         color: white;
-        margin-right: 20px;
+        margin-right: 10px;
       }
     }
   }

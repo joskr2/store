@@ -61,13 +61,7 @@ const Home = () => {
             imagen={chompa}
             rating={3}
           />
-          <Product
-            id={1233633322}
-            titulo="Reloj despertador rojo metalico con acabados modernos"
-            precio="33.50"
-            imagen={reloj}
-            rating={4}
-          />
+
         </div>
         <div className="home__row">
           <Product
@@ -92,6 +86,13 @@ const Home = () => {
             precio="89.00"
             imagen={libro}
             rating={5}
+          />
+                    <Product
+            id={1233633322}
+            titulo="Reloj despertador rojo metalico con acabados modernos"
+            precio="33.50"
+            imagen={reloj}
+            rating={4}
           />
         </div>
       </div>

@@ -52,7 +52,7 @@ const Orders = () => {
       animate="visible"
       exit="exit"
     >
-      <h1 className="orders__title">Tus ordenes</h1>
+      <h1 className="orders__title">Tus pedidos</h1>
       <div className="orders__order">
         {orders?.map((order) => (
           <Order order={order} />

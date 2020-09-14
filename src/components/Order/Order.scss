@@ -2,16 +2,28 @@
 $PT-sans: "PT Sans", sans-serif;
 
 .order{
-    padding: 40px;
-    margin: 20px 0;
     background-color: white;
-    position: relative;
-    &__id{
-        position: absolute;
-        top:48px;
-        right: 20px;
-        font-family: $PT-sans;
+    margin-bottom: 20px;
+    font-family: $PT-sans;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        &__order{
+            display: flex;
+            align-content: space-between;
+        }
+        &__title{
+            font-family: $PT-sans;
+        }
+        &__id{
+            font-size: medium;
+            font-family: $PT-sans;
+        }
+        &__content{
+            font-family: $PT-sans;
+        }
     }
+
     &__total{
         font-weight: 500;
         text-align: right;
